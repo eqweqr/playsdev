@@ -144,6 +144,7 @@ leo-HP-Laptop-15s-eq2xxx
 sudo iptables -L
 ```
 ```console
+
 Chain INPUT (policy DROP)
 target     prot opt source               destination         
 ufw-before-logging-input  all  --  anywhere             anywhere            
@@ -344,6 +345,18 @@ target     prot opt source               destination
 
 Chain ufw-user-output (1 references)
 target     prot opt source               destination
+```
+```bash
+$ sudo iptables -I INPUT --proto icmp -j DROP
+```
+```bash
+ping -c 1 google.com
+```
+```console
+PING google.com (104.164.54.150) 56(84) bytes of data.
+
+--- google.com ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
 ```
 ## Задание 6
 
